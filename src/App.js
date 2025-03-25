@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PhotoGallery from "./components/PhotoGallery";
+import Timeline from "./components/Timeline";
+import LoveLetter from "./components/LoveLetter";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ textAlign: "center", color: "#C71585" }}>
+        Our 1-Year Journey ❤️
+      </h1>
+      <PhotoGallery />
+      <Timeline />
+      <LoveLetter />
+      <footer style={{ textAlign: "center", marginTop: "20px" }}>
+        <p>Made with love 💕</p>
+      </footer>
     </div>
   );
 }
-
-export default App;
