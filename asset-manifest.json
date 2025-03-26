@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/anniversary-website/static/css/main.9379aa44.css",
-    "main.js": "/anniversary-website/static/js/main.5e373914.js",
+    "main.css": "/anniversary-website/static/css/main.d20aa988.css",
+    "main.js": "/anniversary-website/static/js/main.3d51f5d5.js",
     "static/js/453.e56024e1.chunk.js": "/anniversary-website/static/js/453.e56024e1.chunk.js",
     "static/media/photo3.jpeg": "/anniversary-website/static/media/photo3.759c525763dd09cff42e.jpeg",
     "static/media/photo4.jpeg": "/anniversary-website/static/media/photo4.4498239b0b16b33bcef7.jpeg",
@@ -10,12 +10,12 @@
     "static/media/first-date.jpeg": "/anniversary-website/static/media/first-date.12138238552a44b0a9aa.jpeg",
     "static/media/photo1.jpeg": "/anniversary-website/static/media/photo1.12138238552a44b0a9aa.jpeg",
     "index.html": "/anniversary-website/index.html",
-    "main.9379aa44.css.map": "/anniversary-website/static/css/main.9379aa44.css.map",
-    "main.5e373914.js.map": "/anniversary-website/static/js/main.5e373914.js.map",
+    "main.d20aa988.css.map": "/anniversary-website/static/css/main.d20aa988.css.map",
+    "main.3d51f5d5.js.map": "/anniversary-website/static/js/main.3d51f5d5.js.map",
     "453.e56024e1.chunk.js.map": "/anniversary-website/static/js/453.e56024e1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9379aa44.css",
-    "static/js/main.5e373914.js"
+    "static/css/main.d20aa988.css",
+    "static/js/main.3d51f5d5.js"
   ]
 }
