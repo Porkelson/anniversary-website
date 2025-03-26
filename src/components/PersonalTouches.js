@@ -20,10 +20,32 @@ const PersonalTouches = () => {
     }
   ];
 
+  const shows = [
+    {
+      title: "Show 1",
+      genre: "Genre 1",
+      description: "Why we love it"
+    },
+    {
+      title: "Show 2",
+      genre: "Genre 2",
+      description: "Why we love it"
+    },
+    {
+      title: "Show 3",
+      genre: "Genre 3",
+      description: "Why we love it"
+    }
+  ];
+
   return (
     <div className="personal-touches">
       <div className="songs-section">
         <h2>Our Favorite Songs</h2>
+        <p className="section-description">
+          Here are some songs that remind us of special moments together. 
+          Click on any song to listen to it on Spotify!
+        </p>
         <div className="songs-grid">
           {songs.map((song, index) => (
             <a 
@@ -42,19 +64,22 @@ const PersonalTouches = () => {
         </div>
       </div>
 
-      <div className="map-section">
-        <h2>Our Journey Together</h2>
-        <div className="map-container">
-          {/* Replace with your actual map embed code */}
-          <iframe
-            src="https://www.google.com/maps/embed?pb=your-map-embed-code"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+      <div className="shows-section">
+        <h2>Our Favorite Shows</h2>
+        <p className="section-description">
+          These are the shows we love watching together. 
+          Each one holds special memories of our cozy evenings!
+        </p>
+        <div className="shows-grid">
+          {shows.map((show, index) => (
+            <div key={index} className="show-card">
+              <div className="show-content">
+                <h3>{show.title}</h3>
+                <p className="show-genre">{show.genre}</p>
+                <p className="show-description">{show.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -62,7 +87,6 @@ const PersonalTouches = () => {
         <h2>My Final Message to You</h2>
         <div className="message-content">
           <p>
-            {/* Add your personal message here */}
             My dearest, this past year has been filled with countless beautiful moments, 
             and I'm grateful for every single one of them. You make my world complete, 
             and I can't wait to create many more memories together. I love you more than words can express.

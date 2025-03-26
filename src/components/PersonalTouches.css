@@ -5,11 +5,44 @@
 }
 
 .personal-touches h2 {
-  color: var(--text-color);
+  color: var(--primary-color);
   text-align: center;
   font-size: 2rem;
   margin-bottom: 40px;
   font-weight: 600;
+  text-shadow: 1px 1px 3px var(--shadow-color);
+}
+
+.section-description {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  padding: 0 20px;
+  position: relative;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.section-description::before,
+.section-description::after {
+  content: "❤";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.section-description::before {
+  left: 0;
+}
+
+.section-description::after {
+  right: 0;
 }
 
 /* Songs Section */
@@ -25,19 +58,33 @@
 }
 
 .song-card {
-  background: var(--accent-color);
+  background: var(--background-color);
   border-radius: 16px;
   padding: 30px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 8px 16px var(--shadow-color);
+  display: block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.song-card::before {
+  content: "♫";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: var(--primary-color);
+  opacity: 0.7;
 }
 
 .song-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px var(--shadow-color);
-  border-color: var(--primary-color);
+  box-shadow: 0 12px 24px var(--shadow-color);
+  background: var(--accent-color);
 }
 
 .song-content h3 {
@@ -52,6 +99,65 @@
   font-size: 1.1rem;
 }
 
+/* Shows Section */
+.shows-section {
+  margin-bottom: 80px;
+}
+
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.show-card {
+  background: var(--background-color);
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 8px 16px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.show-card::before {
+  content: "★";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.show-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px var(--shadow-color);
+  background: var(--accent-color);
+}
+
+.show-content h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.show-genre {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.show-description {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 /* Map Section */
 .map-section {
   margin-bottom: 80px;
@@ -60,35 +166,60 @@
 .map-container {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 16px var(--shadow-color);
+  border: 4px solid var(--primary-color);
 }
 
 /* Final Message Section */
 .final-message {
-  background: var(--accent-color);
-  border-radius: 16px;
-  padding: 40px;
+  margin-top: 60px;
   text-align: center;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border: 1px solid var(--border-color);
+}
+
+.final-message h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px var(--shadow-color);
+  font-weight: 600;
 }
 
 .message-content {
+  background: var(--background-color);
+  border: 4px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 30px;
   max-width: 800px;
   margin: 0 auto;
+  box-shadow: 0 8px 16px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-content::before {
+  content: "❤";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: var(--primary-color);
+  opacity: 0.7;
 }
 
 .message-content p {
   color: var(--text-color);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.8;
   margin: 0;
+  font-weight: 600;
+  display: block;
+  cursor: pointer;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .songs-grid {
+  .songs-grid,
+  .shows-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
@@ -102,29 +233,50 @@
     margin-bottom: 30px;
   }
 
-  .song-card {
+  .song-card,
+  .show-card {
     padding: 20px;
   }
 
-  .song-content h3 {
+  .song-content h3,
+  .show-content h3 {
     font-size: 1.2rem;
   }
 
-  .song-content p {
+  .song-content p,
+  .show-genre,
+  .show-description {
     font-size: 1rem;
   }
 
-  .final-message {
+  .final-message h2 {
+    font-size: 2rem;
+  }
+
+  .message-content {
     padding: 30px;
+    margin: 0 20px;
   }
 
   .message-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .section-description {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    padding: 0 40px;
+  }
+
+  .section-description::before,
+  .section-description::after {
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .songs-grid {
+  .songs-grid,
+  .shows-grid {
     grid-template-columns: 1fr;
   }
 
@@ -132,11 +284,27 @@
     font-size: 1.6rem;
   }
 
-  .final-message {
-    padding: 20px;
+  .final-message h2 {
+    font-size: 1.8rem;
+  }
+
+  .message-content {
+    padding: 25px;
+    margin: 0 15px;
   }
 
   .message-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    padding: 0 35px;
+  }
+
+  .section-description::before,
+  .section-description::after {
+    font-size: 1.2rem;
   }
 } 
