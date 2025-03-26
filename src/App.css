@@ -26,10 +26,19 @@
   transition: background-color 0.3s ease;
 }
 
-.main-content {
-  padding-top: 80px; /* Height of the navbar */
-  min-height: calc(100vh - 80px);
+.content-wrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .main-header {
@@ -39,6 +48,7 @@
   font-size: 2rem;
   font-weight: 600;
   text-shadow: 1px 1px 2px var(--shadow-color);
+  padding: 0 1rem;
 }
 
 .timeline-header {
@@ -78,6 +88,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -131,6 +142,10 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .content-wrapper {
+    padding-top: 60px;
+  }
+
   .main-header {
     font-size: 1.5rem;
     margin: 1.5rem 0;

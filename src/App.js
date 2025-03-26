@@ -14,24 +14,31 @@ function App() {
       <Router>
         <div className="App">
           <Navbar />
-          <main className="main-content">
-            <h1 className="main-header">
-              Let's relive our first year together! ❤️
-            </h1>
-            <Routes>
-              <Route path="/" element={
-                <>
-                  <PhotoGallery />
-                  <h2 className="timeline-header">Here are our most important dates in our relationship</h2>
-                  <Timeline />
-                </>
-              } />
-              <Route path="/love-letter" element={<LoveLetter />} />
-            </Routes>
+          <div className="content-wrapper">
+            <main className="main-content">
+              <Routes>
+                <Route path="/" element={
+                  <>
+                    <h1 className="main-header">
+                      Let's relive our first year together! ❤️
+                    </h1>
+                    <PhotoGallery />
+                    <h2 className="timeline-header">Here are our most important dates in our relationship</h2>
+                    <Timeline />
+                  </>
+                } />
+                <Route path="/love-letter" element={
+                  <>
+                    <h1 className="main-header">Love Letter</h1>
+                    <LoveLetter />
+                  </>
+                } />
+              </Routes>
+            </main>
             <footer className="footer">
               <p>Made with love, Olek ;&gt;</p>
             </footer>
-          </main>
+          </div>
         </div>
       </Router>
     </ThemeProvider>
