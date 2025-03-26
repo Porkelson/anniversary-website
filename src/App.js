@@ -5,26 +5,33 @@ import PhotoGallery from './components/PhotoGallery';
 import Timeline from './components/Timeline';
 import LoveLetter from './components/LoveLetter';
 import Navbar from './components/Navbar';
-import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider } from './context/ThemeContext';
+import HeroSection from './components/HeroSection';
+import AnimatedBackground from './components/AnimatedBackground';
+import PersonalTouches from './components/PersonalTouches';
 
 function App() {
   return (
     <ThemeProvider>
       <Router>
         <div className="App">
+          <AnimatedBackground />
           <Navbar />
           <div className="content-wrapper">
             <main className="main-content">
               <Routes>
                 <Route path="/" element={
                   <>
+                    <HeroSection />
                     <h1 className="main-header">
                       Let's relive our first year together! ❤️
                     </h1>
                     <PhotoGallery />
-                    <h2 className="timeline-header">Here are our most important dates in our relationship</h2>
+                    <div className="section-text">
+                      <h2>Here are some moments worth mentioning :)</h2>
+                    </div>
                     <Timeline />
+                    <PersonalTouches />
                   </>
                 } />
                 <Route path="/love-letter" element={

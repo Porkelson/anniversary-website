@@ -1,0 +1,142 @@
+.personal-touches {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.personal-touches h2 {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Songs Section */
+.songs-section {
+  margin-bottom: 80px;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.song-card {
+  background: var(--accent-color);
+  border-radius: 16px;
+  padding: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.song-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.song-content h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.song-content p {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+/* Map Section */
+.map-section {
+  margin-bottom: 80px;
+}
+
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Final Message Section */
+.final-message {
+  background: var(--accent-color);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.message-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.message-content p {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .songs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .personal-touches {
+    padding: 40px 15px;
+  }
+
+  .personal-touches h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .song-card {
+    padding: 20px;
+  }
+
+  .song-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .song-content p {
+    font-size: 1rem;
+  }
+
+  .final-message {
+    padding: 30px;
+  }
+
+  .message-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .songs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-touches h2 {
+    font-size: 1.6rem;
+  }
+
+  .final-message {
+    padding: 20px;
+  }
+
+  .message-content p {
+    font-size: 1rem;
+  }
+} 

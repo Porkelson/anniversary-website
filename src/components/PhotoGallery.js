@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./PhotoGallery.css";
 import photo1 from "../images/photo1.jpeg";
@@ -15,18 +15,32 @@ const images = [
   photo5
 ];
 
-export default function PhotoGallery() {
-  console.log("PhotoGallery rendering");
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 100 : -100
+  }),
+  center: {
+    x: 0
+  },
+  exit: (direction) => ({
+    x: direction < 0 ? 100 : -100
+  })
+};
+
+const PhotoGallery = memo(() => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef(null);
 
   const startTimer = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
-    timerRef.current = setInterval(() => {
-      paginate(1);
-    }, 8000);
+    if (isAutoPlaying) {
+      timerRef.current = setInterval(() => {
+        paginate(1);
+      }, 8000);
+    }
   };
 
   useEffect(() => {
@@ -36,35 +50,27 @@ export default function PhotoGallery() {
         clearInterval(timerRef.current);
       }
     };
-  }, []);
+  }, [isAutoPlaying]);
 
   const paginate = (newDirection) => {
     setPage(([prevPage]) => [
       (prevPage + newDirection + images.length) % images.length,
       newDirection
     ]);
-    startTimer(); // Reset timer when manually changing photos
-  };
-
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
+    startTimer();
   };
 
   const imageIndex = ((page % images.length) + images.length) % images.length;
-  const prevIndex = (imageIndex - 1 + images.length) % images.length;
-  const nextIndex = (imageIndex + 1) % images.length;
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+    if (!isAutoPlaying) {
+      startTimer();
+    }
+  };
 
   return (
     <div className="gallery-container">
-      <div className="gallery-preview prev-preview">
-        <img
-          src={images[prevIndex]}
-          alt="Previous"
-          onClick={() => paginate(-1)}
-        />
-      </div>
-
       <div className="gallery-main">
         <button className="nav-button prev" onClick={() => paginate(-1)}>
           ‹
@@ -76,25 +82,14 @@ export default function PhotoGallery() {
               key={page}
               src={images[imageIndex]}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 1000 : -1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -1000 : 1000 }}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                x: { duration: 0.2, ease: "linear" }
               }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
-
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                }
-              }}
+              loading="lazy"
               alt={`Memory ${imageIndex + 1}`}
               className="gallery-img"
             />
@@ -104,29 +99,32 @@ export default function PhotoGallery() {
         <button className="nav-button next" onClick={() => paginate(1)}>
           ›
         </button>
-      </div>
 
-      <div className="gallery-preview next-preview">
-        <img
-          src={images[nextIndex]}
-          alt="Next"
-          onClick={() => paginate(1)}
-        />
+        <div className="gallery-controls">
+          <button 
+            className={`auto-play-button ${isAutoPlaying ? 'active' : ''}`}
+            onClick={toggleAutoPlay}
+            aria-label={isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'}
+          >
+            {isAutoPlaying ? '⏸' : '▶'}
+          </button>
+        </div>
       </div>
 
       <div className="gallery-dots">
         {images.map((_, index) => (
           <button
             key={index}
-            className={`dot ${index === imageIndex ? "active" : ""}`}
+            className={`gallery-dot ${index === imageIndex ? 'active' : ''}`}
             onClick={() => {
-              setPage([index, index > imageIndex ? 1 : -1]);
-              startTimer(); // Reset timer when clicking dots
+              const direction = index > imageIndex ? 1 : -1;
+              setPage([index, direction]);
             }}
-            aria-label={`Go to image ${index + 1}`}
           />
         ))}
       </div>
     </div>
   );
-}
+});
+
+export default PhotoGallery;

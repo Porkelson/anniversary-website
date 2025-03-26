@@ -1,77 +1,120 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import "./Timeline.css";
 
-import firstDate from "../timeline/first-date.jpeg";
+// Import timeline images
+import halloween from "../timeline/halloween.jpeg";
+import wilczaWoda from "../timeline/wilcza_woda.jpeg";
+import juwenalia from "../timeline/juwenalia.jpeg";
+import jordanKotek from "../timeline/jordan_kotek.jpeg";
+import strzelnica from "../timeline/strzelnica.jpeg";
+import akademikGogle from "../timeline/akademik_gogle.jpeg";
+import antykwariat from "../timeline/antykwariat.jpeg";
 
-const events = [
+const timelineData = [
   {
-    date: "March 25, 2023",
-    title: "First Date",
-    description: "We met for the first time at the local café. The conversation flowed naturally, and time seemed to stand still.",
-    image: "/timeline/first-date.jpeg"
+    date: 'October 2023',
+    title: 'Halloween Fun',
+    description: 'Dressing up and celebrating Halloween together.',
+    image: halloween
   },
   {
-    date: "April 15, 2023",
-    title: "First Trip Together",
-    description: "A weekend getaway to the mountains. We hiked, laughed, and created unforgettable memories.",
-    image: "/timeline/first-trip.jpg"
+    date: 'November 2023',
+    title: 'Wilcza Woda Adventure',
+    description: 'Exploring Wilcza Woda together.',
+    image: wilczaWoda
   },
   {
-    date: "June 1, 2023",
-    title: "Moving In Together",
-    description: "Taking the next big step in our relationship. Making a house our home.",
-    image: "/timeline/moving-in.jpg"
+    date: 'December 2023',
+    title: 'Juwenalia Celebration',
+    description: 'Having fun at Juwenalia.',
+    image: juwenalia
   },
   {
-    date: "March 25, 2024",
-    title: "One Year Together ❤️",
-    description: "Celebrating our first year together. Looking back at all the beautiful moments and looking forward to many more.",
-    image: "/timeline/anniversary.jpg"
+    date: 'January 2024',
+    title: 'Jordan Park Visit',
+    description: 'A lovely day at Jordan Park.',
+    image: jordanKotek
+  },
+  {
+    date: 'February 2024',
+    title: 'Shooting Range Experience',
+    description: 'An exciting day at the shooting range.',
+    image: strzelnica
+  },
+  {
+    date: 'March 2024',
+    title: 'Dorm Room Memories',
+    description: 'Special moments in the dorm room.',
+    image: akademikGogle
+  },
+  {
+    date: 'April 2024',
+    title: 'Antique Shop Visit',
+    description: 'Exploring the antique shop together.',
+    image: antykwariat
   }
 ];
 
-export default function Timeline() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+const cardVariants = {
+  hidden: { 
+    opacity: 0,
+    y: 50,
+    x: -50
+  },
+  visible: { 
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
 
+const dotVariants = {
+  hidden: { 
+    scale: 0,
+    opacity: 0
+  },
+  visible: { 
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut"
+    }
+  }
+};
+
+export default function Timeline() {
   return (
-    <div className="timeline-container">
+    <div className="timeline">
       <div className="timeline-line"></div>
-      {events.map((event, index) => (
+      {timelineData.map((item, index) => (
         <motion.div
           key={index}
-          className={`timeline-event ${expandedIndex === index ? 'expanded' : ''}`}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
+          className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <div 
-            className="timeline-node"
-            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+          <motion.div 
+            className="timeline-dot"
+            variants={dotVariants}
+          ></motion.div>
+          <motion.div 
+            className="timeline-card"
+            variants={cardVariants}
           >
-            <div className="timeline-dot"></div>
-            <div className="timeline-date">{event.date}</div>
-          </div>
-
-          <AnimatePresence>
-            {expandedIndex === index && (
-              <motion.div
-                className="timeline-content"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3>{event.title}</h3>
-                {event.image && (
-                  <div className="timeline-image">
-                    <img src={event.image} alt={event.title} />
-                  </div>
-                )}
-                <p>{event.description}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            <div className="timeline-date">{item.date}</div>
+            <h3>{item.title}</h3>
+            <div className="timeline-image">
+              <img src={item.image} alt={item.title} />
+            </div>
+            <p>{item.description}</p>
+          </motion.div>
         </motion.div>
       ))}
     </div>

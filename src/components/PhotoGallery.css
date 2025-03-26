@@ -3,121 +3,131 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
 }
 
 .gallery-main {
-  flex: 1;
-  min-width: 800px;
   position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .gallery-wrapper {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-preview {
-  width: 150px;
-  height: 600px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 8px;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.gallery-preview:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}
-
-.gallery-preview img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.8);
 }
 
 .gallery-img {
-  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: grab;
-}
-
-.gallery-img:active {
-  cursor: grabbing;
 }
 
 .nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  color: #333;
-  border: none;
   width: 40px;
   height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 2;
+  backdrop-filter: blur(4px);
+  color: var(--primary-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .nav-button:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--primary-color);
+  color: white;
   transform: translateY(-50%) scale(1.1);
 }
 
-.prev {
-  left: 10px;
+.nav-button.prev {
+  left: 20px;
 }
 
-.next {
-  right: 10px;
+.nav-button.next {
+  right: 20px;
+}
+
+.gallery-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.auto-play-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  backdrop-filter: blur(4px);
+  color: var(--primary-color);
+}
+
+.auto-play-button:hover {
+  transform: scale(1.1);
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+.auto-play-button.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 20px var(--primary-color);
 }
 
 .gallery-dots {
-  width: 100%;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
+.gallery-dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: #ddd;
-  border: none;
-  padding: 0;
+  background: var(--border-color);
+  border: 2px solid var(--primary-color);
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0.6;
 }
 
-.dot:hover {
+.gallery-dot:hover {
+  opacity: 1;
   transform: scale(1.2);
 }
 
-.dot.active {
-  background-color: #666;
+.gallery-dot.active {
+  background: var(--primary-color);
   transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .error-message {
@@ -134,59 +144,42 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 1200px) {
-  .gallery-preview {
-    display: none;
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 15px;
   }
 
   .gallery-main {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .gallery-wrapper {
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-wrapper {
     height: 400px;
   }
 
-  .gallery-container {
-    padding: 10px;
-  }
-
   .nav-button {
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
+  .auto-play-button {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .gallery-wrapper {
+  .gallery-main {
     height: 300px;
   }
 
   .nav-button {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
   }
 
-  .gallery-dots {
-    gap: 6px;
-  }
-
-  .dot {
-    width: 6px;
-    height: 6px;
+  .auto-play-button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 } 
