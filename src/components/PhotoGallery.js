@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./PhotoGallery.css";
 import photo1 from "../images/photo1.jpeg";
@@ -16,14 +16,26 @@ const images = [
 ];
 
 export default function PhotoGallery() {
+  console.log("PhotoGallery rendering");
   const [[page, direction], setPage] = useState([0, 0]);
+  const timerRef = useRef(null);
+
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      paginate(1);
+    }, 8000);
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      paginate(1);
-    }, 3000);
-
-    return () => clearInterval(timer);
+    startTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, []);
 
   const paginate = (newDirection) => {
@@ -31,6 +43,7 @@ export default function PhotoGallery() {
       (prevPage + newDirection + images.length) % images.length,
       newDirection
     ]);
+    startTimer(); // Reset timer when manually changing photos
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -65,7 +78,7 @@ export default function PhotoGallery() {
               custom={direction}
               initial={{ opacity: 0, x: direction > 0 ? 1000 : -1000 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction < 0 ? 1000 : -1000 }}
+              exit={{ opacity: 0, x: direction > 0 ? -1000 : 1000 }}
               transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
@@ -108,6 +121,7 @@ export default function PhotoGallery() {
             className={`dot ${index === imageIndex ? "active" : ""}`}
             onClick={() => {
               setPage([index, index > imageIndex ? 1 : -1]);
+              startTimer(); // Reset timer when clicking dots
             }}
             aria-label={`Go to image ${index + 1}`}
           />

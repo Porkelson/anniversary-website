@@ -12,10 +12,10 @@
   bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, 
-    rgba(0,0,0,0.1),
-    rgba(0,0,0,0.2) 20%,
-    rgba(0,0,0,0.2) 80%,
-    rgba(0,0,0,0.1)
+    var(--shadow-color),
+    var(--border-color) 20%,
+    var(--border-color) 80%,
+    var(--shadow-color)
   );
   transform: translateX(-50%);
 }
@@ -41,43 +41,44 @@
 
 .timeline-node:hover .timeline-dot {
   transform: scale(1.2);
-  background-color: #ff6b6b;
+  background-color: var(--primary-color);
 }
 
 .timeline-dot {
   width: 20px;
   height: 20px;
-  background-color: #ff4757;
+  background-color: var(--primary-color);
   border-radius: 50%;
   margin: 0 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 0 4px white, 0 0 0 6px rgba(255, 71, 87, 0.3);
+  box-shadow: 0 0 0 4px var(--background-color), 0 0 0 6px var(--shadow-color);
 }
 
 .timeline-date {
   font-weight: 500;
-  color: #2d3436;
+  color: var(--text-color);
   min-width: 120px;
 }
 
 .timeline-content {
-  background: white;
+  background: var(--accent-color);
   border-radius: 12px;
   padding: 20px;
   margin: 20px;
   width: 80%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-color);
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .timeline-content h3 {
-  color: #2d3436;
+  color: var(--text-color);
   margin: 0 0 15px 0;
   font-size: 1.2em;
 }
 
 .timeline-content p {
-  color: #636e72;
+  color: var(--secondary-color);
   line-height: 1.6;
   margin: 0;
 }
@@ -104,12 +105,10 @@
 /* Alternating layout */
 .timeline-event:nth-child(odd) .timeline-content {
   margin-left: auto;
-  text-align: right;
 }
 
 .timeline-event:nth-child(even) .timeline-content {
   margin-right: auto;
-  text-align: left;
 }
 
 /* Mobile Responsive */
@@ -120,34 +119,32 @@
 
   .timeline-content {
     width: 90%;
-    margin: 15px auto;
-    text-align: left;
+    margin: 15px;
   }
 
   .timeline-date {
     min-width: 100px;
-    font-size: 0.9em;
   }
 
   .timeline-image {
-    height: 150px;
+    height: 180px;
   }
 }
 
 @media (max-width: 480px) {
   .timeline-content {
     width: 95%;
-    padding: 15px;
+    margin: 10px;
   }
 
   .timeline-dot {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     margin: 0 15px;
   }
 
   .timeline-date {
-    min-width: 90px;
-    font-size: 0.85em;
+    min-width: 80px;
+    font-size: 0.9em;
   }
 } 

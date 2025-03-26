@@ -1,8 +1,29 @@
+:root {
+  --primary-color: #D72638;
+  --secondary-color: #1E1E3F;
+  --background-color: #F8F4F4;
+  --text-color: #2E2E2E;
+  --accent-color: #FADADD;
+  --border-color: #C1B8C8;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --primary-color: #FF6B6B;
+  --secondary-color: #FADADD;
+  --background-color: #1E1E3F;
+  --text-color: #F8F4F4;
+  --accent-color: #2E2E2E;
+  --border-color: #3A3A5F;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 .App {
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease;
 }
 
 .main-content {
@@ -13,11 +34,20 @@
 
 .main-header {
   text-align: center;
-  color: #C71585;
+  color: var(--primary-color);
   margin: 2rem 0;
   font-size: 2rem;
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.timeline-header {
+  text-align: center;
+  color: var(--primary-color);
+  margin: 3rem 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 /* Add some spacing between components */
@@ -45,6 +75,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .App-logo {
@@ -85,14 +118,14 @@ body {
 .footer {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(5px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--accent-color);
+  border-top: 1px solid var(--border-color);
   margin-top: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer p {
-  color: #666;
+  color: var(--secondary-color);
   font-size: 0.9rem;
 }
 
@@ -101,6 +134,12 @@ body {
   .main-header {
     font-size: 1.5rem;
     margin: 1.5rem 0;
+    padding: 0 1rem;
+  }
+
+  .timeline-header {
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem;
     padding: 0 1rem;
   }
 
@@ -113,5 +152,10 @@ body {
   .main-header {
     font-size: 1.3rem;
     margin: 1rem 0;
+  }
+
+  .timeline-header {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem;
   }
 }

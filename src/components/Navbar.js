@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -29,19 +30,20 @@ export default function Navbar() {
 
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <Link 
-          to="/memories" 
+          to="/" 
           className="nav-link"
           onClick={() => setIsOpen(false)}
         >
           Our Memories
         </Link>
         <Link 
-          to="/letter" 
+          to="/love-letter" 
           className="nav-link"
           onClick={() => setIsOpen(false)}
         >
           Love Letter
         </Link>
+        <ThemeToggle />
       </div>
     </nav>
   );
