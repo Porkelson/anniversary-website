@@ -36,7 +36,6 @@ function App() {
                 } />
                 <Route path="/love-letter" element={
                   <>
-                    <h1 className="main-header">Love Letter</h1>
                     <LoveLetter />
                   </>
                 } />

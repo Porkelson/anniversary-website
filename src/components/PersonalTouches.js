@@ -4,37 +4,37 @@ import './PersonalTouches.css';
 const PersonalTouches = () => {
   const songs = [
     {
-      title: "Song 1",
-      artist: "Artist 1",
-      link: "https://open.spotify.com/track/your-song-1"
+      title: "Hard To Say Goodbye",
+      artist: "Kiss",
+      embed: "https://open.spotify.com/embed/track/4NasktR5Hj5df1iJC6ioJt?utm_source=generator&theme=1"
     },
     {
-      title: "Song 2",
-      artist: "Artist 2",
-      link: "https://open.spotify.com/track/your-song-2"
+      title: "Too Sweet",
+      artist: "Hozier",
+      embed: "https://open.spotify.com/embed/track/19XpFsce28aByvCC4g89tJ?utm_source=generator&theme=1"
     },
     {
-      title: "Song 3",
-      artist: "Artist 3",
-      link: "https://open.spotify.com/track/your-song-3"
+      title: "My Love Mine All Mine",
+      artist: "Mitski",
+      embed: "https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator&theme=1"
     }
   ];
 
   const shows = [
     {
-      title: "Show 1",
-      genre: "Genre 1",
-      description: "Why we love it"
+      title: "Invincible",
+      genre: "Superhero/Action",
+      description: "THINK MARK"
     },
     {
-      title: "Show 2",
-      genre: "Genre 2",
-      description: "Why we love it"
+      title: "Bones",
+      genre: "Crime/Drama",
+      description: "Our first binge show together"
     },
     {
-      title: "Show 3",
-      genre: "Genre 3",
-      description: "Why we love it"
+      title: "Arcane",
+      genre: "Animation/Drama",
+      description: "Absolute cinema"
     }
   ];
 
@@ -48,18 +48,19 @@ const PersonalTouches = () => {
         </p>
         <div className="songs-grid">
           {songs.map((song, index) => (
-            <a 
-              key={index}
-              href={song.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="song-card"
-            >
-              <div className="song-content">
-                <h3>{song.title}</h3>
-                <p>{song.artist}</p>
-              </div>
-            </a>
+            <div key={index} className="song-card">
+              <iframe 
+                title={song.title}
+                style={{ borderRadius: "12px" }}
+                src={song.embed}
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
           ))}
         </div>
       </div>
@@ -89,7 +90,7 @@ const PersonalTouches = () => {
           <p>
             My dearest, this past year has been filled with countless beautiful moments, 
             and I'm grateful for every single one of them. You make my world complete, 
-            and I can't wait to create many more memories together. I love you more than words can express.
+            and I can't wait to create many more memories together. I love you pookie bear.
           </p>
         </div>
       </div>

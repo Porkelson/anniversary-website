@@ -59,44 +59,24 @@
 
 .song-card {
   background: var(--background-color);
-  border-radius: 16px;
-  padding: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
   border: 4px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 20px;
   box-shadow: 0 8px 16px var(--shadow-color);
-  display: block;
-  cursor: pointer;
   position: relative;
   overflow: hidden;
-}
-
-.song-card::before {
-  content: "♫";
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  color: var(--primary-color);
-  opacity: 0.7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .song-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px var(--shadow-color);
-  background: var(--accent-color);
 }
 
-.song-content h3 {
-  color: var(--text-color);
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.song-content p {
-  color: var(--secondary-color);
-  font-size: 1.1rem;
+.song-card iframe {
+  width: 100%;
+  height: 352px;
+  border-radius: 12px;
 }
 
 /* Shows Section */
@@ -233,17 +213,22 @@
     margin-bottom: 30px;
   }
 
-  .song-card,
+  .song-card {
+    padding: 15px;
+  }
+
+  .song-card iframe {
+    height: 252px;
+  }
+
   .show-card {
     padding: 20px;
   }
 
-  .song-content h3,
   .show-content h3 {
     font-size: 1.2rem;
   }
 
-  .song-content p,
   .show-genre,
   .show-description {
     font-size: 1rem;
@@ -306,5 +291,26 @@
   .section-description::before,
   .section-description::after {
     font-size: 1.2rem;
+  }
+
+  .song-card {
+    padding: 12px;
+  }
+
+  .song-card iframe {
+    height: 202px;
+  }
+
+  .show-card {
+    padding: 15px;
+  }
+
+  .show-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .show-genre,
+  .show-description {
+    font-size: 0.9rem;
   }
 } 

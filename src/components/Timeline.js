@@ -10,49 +10,63 @@ import jordanKotek from "../timeline/jordan_kotek.jpeg";
 import strzelnica from "../timeline/strzelnica.jpeg";
 import akademikGogle from "../timeline/akademik_gogle.jpeg";
 import antykwariat from "../timeline/antykwariat.jpeg";
+import zakopane from "../timeline/zakopane.jpeg";
+import jedzenie from "../timeline/jedzenie.jpeg";
 
 const timelineData = [
   {
-    date: 'October 2023',
-    title: 'Halloween Fun',
-    description: 'Dressing up and celebrating Halloween together.',
-    image: halloween
-  },
-  {
-    date: 'November 2023',
-    title: 'Wilcza Woda Adventure',
-    description: 'Exploring Wilcza Woda together.',
-    image: wilczaWoda
-  },
-  {
-    date: 'December 2023',
-    title: 'Juwenalia Celebration',
-    description: 'Having fun at Juwenalia.',
-    image: juwenalia
-  },
-  {
-    date: 'January 2024',
-    title: 'Jordan Park Visit',
-    description: 'A lovely day at Jordan Park.',
-    image: jordanKotek
-  },
-  {
-    date: 'February 2024',
+    date: 'June 2024',
     title: 'Shooting Range Experience',
-    description: 'An exciting day at the shooting range.',
+    description: 'Alright I admit you are better than me :>',
     image: strzelnica
   },
   {
-    date: 'March 2024',
-    title: 'Dorm Room Memories',
-    description: 'Special moments in the dorm room.',
+    date: 'June 2024',
+    title: 'Antique Shop Visit',
+    description: 'We must visit mr Jaroslaw next time!!',
+    image: antykwariat
+  },
+  {
+    date: 'July 2024',
+    title: 'Wilcza Wola Adventure',
+    description: 'Mussels got what they deserved',
+    image: wilczaWoda
+  },
+  {
+    date: 'July 2024',
+    title: 'Juwenalia Celebration',
+    description: 'Never again',
+    image: juwenalia
+  },
+  {
+    date: 'July 2024',
+    title: 'Dorm Room Moving',
+    description: 'Lots of carrying boxes and cleaning',
     image: akademikGogle
   },
   {
-    date: 'April 2024',
-    title: 'Antique Shop Visit',
-    description: 'Exploring the antique shop together.',
-    image: antykwariat
+    date: 'October 2024',
+    title: 'Halloween Fun',
+    description: 'I did not think dressing up would be so fun!!',
+    image: halloween
+  },
+  {
+    date: 'January 2025',
+    title: 'Jordan Park Visit',
+    description: 'Look ath this cute kitty cat',
+    image: jordanKotek
+  },
+  {
+    date: 'February 2025',
+    title: 'Zakopane Trip',
+    description: 'We will get better boots next time',
+    image: zakopane
+  },
+  {
+    date: 'ALL THE TIME',
+    title: 'WONDERFUL FOOD',
+    description: 'Thank you for every single meal we shared together',
+    image: jedzenie
   }
 ];
 
