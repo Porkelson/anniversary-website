@@ -7,56 +7,52 @@
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, var(--background-color) 0%, var(--accent-color) 100%);
-  will-change: transform;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
-.heart {
+.mesh-blob {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: var(--primary-color);
-  transform: rotate(45deg) translateZ(0);
-  opacity: 0.15;
-  animation: float 20s infinite;
-  will-change: transform;
-}
-
-.heart::before,
-.heart::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: var(--primary-color);
   border-radius: 50%;
+  filter: blur(90px);
+  animation: blobDrift 20s ease-in-out infinite;
 }
 
-.heart::before {
-  left: -10px;
+.blob1 {
+  width: 650px;
+  height: 650px;
+  background: var(--accent-color);
+  opacity: 0.45;
+  top: -200px;
+  left: -120px;
+  animation-delay: 0s;
+  animation-duration: 20s;
 }
 
-.heart::after {
-  top: -10px;
+.blob2 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary-color);
+  opacity: 0.1;
+  top: 15%;
+  right: -150px;
+  animation-delay: -7s;
+  animation-duration: 24s;
 }
 
-.heart1 { left: 20%; animation-delay: 0s; }
-.heart2 { left: 40%; animation-delay: 5s; }
-.heart3 { left: 60%; animation-delay: 10s; }
+.blob3 {
+  width: 420px;
+  height: 420px;
+  background: var(--gold-color);
+  opacity: 0.12;
+  bottom: -80px;
+  left: 28%;
+  animation-delay: -13s;
+  animation-duration: 28s;
+}
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh) rotate(45deg) translateZ(0);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.15;
-  }
-  80% {
-    opacity: 0.15;
-  }
-  100% {
-    transform: translateY(-100px) rotate(45deg) translateZ(0);
-    opacity: 0;
-  }
-} 
+@keyframes blobDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(28px, -38px) scale(1.04); }
+  66%       { transform: translate(-18px, 22px) scale(0.97); }
+}

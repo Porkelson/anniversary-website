@@ -2,80 +2,228 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 120px);
-  padding: 20px;
-}
-
-.love-letter-card {
+  min-height: calc(100vh - 72px);
+  padding: 40px 20px;
   background: var(--background-color);
-  border: 4px solid var(--primary-color);
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 8px 16px var(--shadow-color);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* subtle watermark pattern */
+  background-image: radial-gradient(var(--accent-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  transition: background-color 0.3s ease;
 }
 
-.love-letter-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px var(--shadow-color);
+/* Envelope */
+.envelope-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
-.love-message {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 3px var(--shadow-color);
-  line-height: 1.6;
-}
-
-.love-button {
-  margin-top: 20px;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background: var(--primary-color);
-  color: white;
+.envelope {
+  background: none;
   border: none;
-  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  transition: all 0.3s ease;
+  padding: 0;
 }
 
-.love-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px var(--shadow-color);
+.envelope-body {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 12px 40px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .love-letter-card {
-    padding: 30px;
-  }
-
-  .love-message {
-    font-size: 1.5rem;
-  }
-
-  .love-button {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-  }
+.envelope:hover .envelope-body {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 50px var(--shadow-color);
 }
 
+/* Envelope flap — the triangular top */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-top: 90px solid var(--accent-color);
+  transition: border-top-color 0.3s ease;
+}
+
+.envelope:hover .envelope-flap {
+  border-top-color: var(--primary-color);
+  opacity: 0.6;
+}
+
+/* Bottom fold lines */
+.envelope-body::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 130px solid var(--border-color);
+  border-right: 0px solid transparent;
+  border-bottom: 80px solid transparent;
+}
+
+.envelope-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-right: 130px solid var(--border-color);
+  border-left: 0px solid transparent;
+  border-bottom: 80px solid transparent;
+}
+
+.envelope-seal {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  color: var(--primary-color);
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover .envelope-seal {
+  transform: scale(1.15);
+}
+
+.envelope-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Letter card */
+.letter-wrap {
+  width: 100%;
+  max-width: 560px;
+}
+
+.letter-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 16px 48px var(--shadow-color);
+  overflow: hidden;
+}
+
+.letter-header {
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.letter-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-color);
+}
+
+.letter-body {
+  padding: 36px 32px 28px;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+}
+
+.letter-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.letter-cursor {
+  display: inline-block;
+  color: var(--primary-color);
+  animation: blink 1s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.letter-footer {
+  padding: 20px 32px 28px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--border-color);
+}
+
+.letter-next {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.letter-next:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+  background: var(--accent-color);
+}
+
+/* Mobile */
 @media (max-width: 480px) {
-  .love-letter-card {
-    padding: 25px;
+  .envelope-body {
+    width: 220px;
+    height: 152px;
   }
 
-  .love-message {
-    font-size: 1.3rem;
+  .envelope-flap {
+    border-left-width: 110px;
+    border-right-width: 110px;
+    border-top-width: 76px;
   }
 
-  .love-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+  .envelope-body::before { border-left-width: 110px; }
+  .envelope-body::after  { border-right-width: 110px; }
+
+  .letter-card {
+    border-radius: 6px;
   }
-} 
+
+  .letter-body {
+    padding: 28px 20px 20px;
+  }
+
+  .letter-text {
+    font-size: 1.2rem;
+  }
+
+  .letter-header,
+  .letter-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

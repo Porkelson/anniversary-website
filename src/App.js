@@ -9,6 +9,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import HeroSection from './components/HeroSection';
 import AnimatedBackground from './components/AnimatedBackground';
 import PersonalTouches from './components/PersonalTouches';
+import AnniversaryWidget from './components/AnniversaryWidget';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                     <h1 className="main-header">
                       Let's relive our first year together! ❤️
                     </h1>
+                    <AnniversaryWidget />
                     <PhotoGallery />
                     <div className="section-text">
                       <h2>Here are some moments worth mentioning :)</h2>

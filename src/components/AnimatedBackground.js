@@ -4,13 +4,11 @@ import './AnimatedBackground.css';
 const AnimatedBackground = () => {
   return (
     <div className="animated-background">
-      <div className="heart heart1"></div>
-      <div className="heart heart2"></div>
-      <div className="heart heart3"></div>
-      <div className="heart heart4"></div>
-      <div className="heart heart5"></div>
+      <div className="mesh-blob blob1" />
+      <div className="mesh-blob blob2" />
+      <div className="mesh-blob blob3" />
     </div>
   );
 };
 
-export default AnimatedBackground; 
+export default AnimatedBackground;
