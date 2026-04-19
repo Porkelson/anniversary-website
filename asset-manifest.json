@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/anniversary-website/static/css/main.3e78a215.css",
+    "main.css": "/anniversary-website/static/css/main.381c74f3.css",
     "main.js": "/anniversary-website/static/js/main.48d32f65.js",
     "static/js/453.e56024e1.chunk.js": "/anniversary-website/static/js/453.e56024e1.chunk.js",
     "static/media/antykwariat.jpeg": "/anniversary-website/static/media/antykwariat.f3f063cc3988ee6d6acd.jpeg",
@@ -18,12 +18,12 @@
     "static/media/jedzenie.jpeg": "/anniversary-website/static/media/jedzenie.aff4988fd8c6647c5092.jpeg",
     "static/media/photo1.jpeg": "/anniversary-website/static/media/photo1.12138238552a44b0a9aa.jpeg",
     "index.html": "/anniversary-website/index.html",
-    "main.3e78a215.css.map": "/anniversary-website/static/css/main.3e78a215.css.map",
+    "main.381c74f3.css.map": "/anniversary-website/static/css/main.381c74f3.css.map",
     "main.48d32f65.js.map": "/anniversary-website/static/js/main.48d32f65.js.map",
     "453.e56024e1.chunk.js.map": "/anniversary-website/static/js/453.e56024e1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e78a215.css",
+    "static/css/main.381c74f3.css",
     "static/js/main.48d32f65.js"
   ]
 }
