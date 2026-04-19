@@ -13,7 +13,7 @@
   padding: 0 2.5rem;
   z-index: 1000;
   border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 [data-theme="dark"] .navbar {
@@ -126,7 +126,7 @@
     align-items: flex-start;
     padding: 2.5rem 2rem;
     gap: 2rem;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -4px 0 24px var(--shadow-color);
     border-left: 1px solid var(--border-color);
   }

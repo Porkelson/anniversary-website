@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -41,8 +42,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
   background-color: var(--background-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* no background-color transition — avoids triggering blur-filter repaints on every theme switch */
+  transition: color 0.2s ease;
   min-height: 100vh;
+  /* overflow-x only on html, not body — both together create two scroll containers on iOS */
 }
 
 .App {

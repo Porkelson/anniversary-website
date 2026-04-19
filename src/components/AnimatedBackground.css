@@ -8,7 +8,7 @@
   z-index: 0;
   pointer-events: none;
   background-color: var(--background-color);
-  transition: background-color 0.3s ease;
+  /* no transition — changing background on a blur-filter parent is very expensive on mobile */
 }
 
 .mesh-blob {
