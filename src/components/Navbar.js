@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
+const NAV_LINKS = [
+  { to: '/',            label: 'Memories'     },
+  { to: '/journal',     label: 'Journal'      },
+  { to: '/bucket-list', label: 'Bucket List'  },
+  { to: '/love-letter', label: 'Love Letter'  },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -42,12 +49,16 @@ export default function Navbar() {
       </button>
 
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
-        <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>
-          Our Memories
-        </Link>
-        <Link to="/love-letter" className="nav-link" onClick={() => setIsOpen(false)}>
-          Love Letter
-        </Link>
+        {NAV_LINKS.map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className="nav-link"
+            onClick={() => setIsOpen(false)}
+          >
+            {label}
+          </Link>
+        ))}
         <ThemeToggle />
       </div>
     </nav>

@@ -1,0 +1,305 @@
+.bucket {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 20px 80px;
+}
+
+/* Hero */
+.bucket-hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.bucket-eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-color);
+  margin-bottom: 12px;
+}
+
+.bucket-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+  margin: 0;
+}
+
+.bucket-underline {
+  width: 56px;
+  height: 2px;
+  background: var(--gold-color);
+  margin: 16px auto 20px;
+}
+
+.bucket-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Body */
+.bucket-body {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Write section */
+.bucket-write {
+  min-height: 80px;
+}
+
+/* Password gate */
+.bucket-gate {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.bucket-gate-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.bucket-gate-row {
+  display: flex;
+  gap: 10px;
+}
+
+.bucket-gate-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.bucket-gate-input:focus {
+  border-color: var(--primary-color);
+}
+
+.bucket-gate-btn {
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.bucket-gate-btn:hover {
+  opacity: 0.88;
+}
+
+.bucket-error {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-top: 10px;
+}
+
+/* Add form */
+.bucket-add-form {
+  display: flex;
+  gap: 10px;
+}
+
+.bucket-add-input {
+  flex: 1;
+  padding: 11px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: border-color 0.2s ease;
+}
+
+.bucket-add-input:focus {
+  border-color: var(--primary-color);
+}
+
+.bucket-add-btn {
+  padding: 11px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.bucket-add-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.bucket-add-btn:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+/* List */
+.bucket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bucket-state {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.bucket-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--shadow-color);
+  transition: box-shadow 0.2s ease;
+}
+
+.bucket-item:hover {
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Checkbox */
+.bucket-check {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bucket-check--locked {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.bucket-check-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.bucket-check:not(.bucket-check--locked):hover .bucket-check-box {
+  border-color: var(--primary-color);
+  background: var(--accent-color);
+}
+
+.bucket-check--ticked .bucket-check-box {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.bucket-item-title {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.bucket-item-title--done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.bucket-item-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Completed section */
+.bucket-done-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bucket-done-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.bucket-done-divider::before,
+.bucket-done-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.bucket-item--done {
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .bucket {
+    padding-top: 60px;
+  }
+
+  .bucket-add-form {
+    flex-direction: column;
+  }
+
+  .bucket-gate-row {
+    flex-direction: column;
+  }
+
+  .bucket-gate-btn {
+    width: 100%;
+  }
+}

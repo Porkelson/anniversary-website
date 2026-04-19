@@ -10,6 +10,8 @@ import HeroSection from './components/HeroSection';
 import AnimatedBackground from './components/AnimatedBackground';
 import PersonalTouches from './components/PersonalTouches';
 import AnniversaryWidget from './components/AnniversaryWidget';
+import Journal from './components/Journal';
+import BucketList from './components/BucketList';
 
 function App() {
   return (
@@ -36,11 +38,9 @@ function App() {
                     <PersonalTouches />
                   </>
                 } />
-                <Route path="/love-letter" element={
-                  <>
-                    <LoveLetter />
-                  </>
-                } />
+                <Route path="/love-letter" element={<LoveLetter />} />
+                <Route path="/journal" element={<Journal />} />
+                <Route path="/bucket-list" element={<BucketList />} />
               </Routes>
             </main>
             <footer className="footer">
